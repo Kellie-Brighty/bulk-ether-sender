@@ -1,0 +1,1 @@
+export const PRIVY_APP_ID = "cm3tz9q4n00g5njiuqd9t9ds0"
