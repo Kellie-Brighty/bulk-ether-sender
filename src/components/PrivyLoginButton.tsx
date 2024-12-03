@@ -1,4 +1,5 @@
 import { usePrivy } from "@privy-io/react-auth";
+import { useDisconnect } from "wagmi"; // Import the useDisconnect hook
 
 interface PrivyAuthButtonProps {
   text: string;
@@ -6,6 +7,12 @@ interface PrivyAuthButtonProps {
 
 export default function LoginButton({ text }: PrivyAuthButtonProps) {
   const { ready, authenticated, login, logout } = usePrivy();
+  const { disconnect } = useDisconnect(); // Initialize the disconnect function
+
+  const handleLogout = () => {
+    logout(); // Logs out from Privy
+    disconnect(); // Disconnects the wallet
+  };
 
   return (
     <button
@@ -13,7 +20,7 @@ export default function LoginButton({ text }: PrivyAuthButtonProps) {
         !ready && `bg-[#ccc] cursor-not-allowed`
       }`}
       disabled={!ready}
-      onClick={authenticated ? logout : login}
+      onClick={authenticated ? handleLogout : login}
       style={{ minWidth: "200px" }} // Added minWidth for better mobile display
     >
       {text}

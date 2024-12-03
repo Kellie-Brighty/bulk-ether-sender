@@ -17,7 +17,6 @@ export const PrimaryButton = ({
   disabled, // {{ edit_2 }} Added disabled to destructured props
   active,
 }: ButtonProps) => {
-  console.log("Active:::", active);
   return (
     <button
       className={

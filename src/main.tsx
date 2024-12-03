@@ -11,6 +11,8 @@ import { WagmiProvider } from "wagmi";
 import { config } from "./wagmi.config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+// const contractAddress = "0xdad40eee17e8733eef4d2f888282ce20858de766";
+
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
